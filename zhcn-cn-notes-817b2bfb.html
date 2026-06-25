@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>1xbet 平台信息索引 · 资料卡片</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f0f6f9;
+      color: #1a2b3a;
+      line-height: 1.6;
+      padding: 1.2rem 1rem 3rem;
+      min-height: 100vh;
+    }
+    .page-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* 主视觉区 — 信息密度卡片 */
+    .hero-card {
+      background: linear-gradient(145deg, #e8f3f7 0%, #d5e9f0 100%);
+      border-radius: 28px;
+      padding: 2.6rem 2rem 2.8rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 12px 30px -6px rgba(0, 90, 100, 0.12);
+      border: 1px solid rgba(0, 128, 128, 0.08);
+      position: relative;
+      transition: box-shadow 0.2s;
+    }
+    .hero-card:hover {
+      box-shadow: 0 18px 40px -10px rgba(0, 110, 110, 0.18);
+    }
+    .hero-label {
+      display: inline-block;
+      background: #0f6b73;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+      color: #00363d;
+    }
+    .hero-title span {
+      color: #0f7b84;
+      border-bottom: 3px solid #40b3b3;
+      display: inline-block;
+      padding-bottom: 2px;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: #1f4a52;
+      max-width: 700px;
+      margin-bottom: 1.6rem;
+    }
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.8rem;
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: #1f555e;
+    }
+    .hero-stats strong {
+      font-weight: 600;
+      color: #00363d;
+    }
+
+    /* 网格卡片系统 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      margin: 2rem 0 1.8rem;
+    }
+    @media (min-width: 540px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (min-width: 860px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+    .grid-card {
+      background: white;
+      border-radius: 20px;
+      padding: 1.6rem 1.4rem 1.8rem;
+      box-shadow: 0 4px 12px rgba(0, 70, 75, 0.04);
+      border: 1px solid #e4eff2;
+      transition: 0.2s ease, transform 0.15s;
+    }
+    .grid-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -8px rgba(0, 110, 110, 0.10);
+      border-color: #b8dae0;
+    }
+    .card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      display: block;
+      line-height: 1;
+    }
+    .grid-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #00363d;
+      margin-bottom: 0.5rem;
+    }
+    .grid-card p {
+      font-size: 0.9rem;
+      color: #2a4d56;
+      margin-bottom: 0.3rem;
+    }
+    .card-tag {
+      display: inline-block;
+      background: #def0f3;
+      color: #0f6b73;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.2rem 0.7rem;
+      border-radius: 40px;
+      margin-top: 0.5rem;
+    }
+
+    /* 合适人群 + 自然链接段落 */
+    .section-block {
+      background: white;
+      border-radius: 24px;
+      padding: 1.8rem 1.6rem;
+      margin-top: 1.6rem;
+      border: 1px solid #dde9ed;
+    }
+    .section-block h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #00363d;
+      margin-bottom: 0.7rem;
+      letter-spacing: -0.01em;
+    }
+    .section-block p {
+      margin-bottom: 0.7rem;
+      color: #1f4851;
+    }
+    .compact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.6rem 0 0.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.2rem;
+    }
+    .compact-list li {
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .compact-list li::before {
+      content: "▹";
+      color: #0f8a8a;
+      font-weight: 600;
+    }
+    .link-inline {
+      color: #0f7b84;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #b0d3d9;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .link-inline:hover {
+      color: #004c54;
+      border-bottom-color: #0f6b73;
+    }
+
+    /* FAQ 摘要 — 紧凑 */
+    .faq-mini {
+      margin-top: 2rem;
+      padding: 1.2rem 1.4rem;
+      background: #e7f3f6;
+      border-radius: 20px;
+    }
+    .faq-mini h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #00363d;
+      margin-bottom: 0.6rem;
+    }
+    .faq-item {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #cde0e5;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-q {
+      font-weight: 600;
+      color: #0f5a62;
+      font-size: 0.9rem;
+    }
+    .faq-a {
+      font-size: 0.85rem;
+      color: #2b525c;
+      margin-top: 0.1rem;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      margin-top: 2.2rem;
+      font-size: 0.75rem;
+      color: #698a91;
+      text-align: center;
+      border-top: 1px solid #d4e3e8;
+      padding-top: 1.5rem;
+    }
+
+    /* 小屏微调 */
+    @media (max-width: 400px) {
+      .hero-title { font-size: 1.6rem; }
+      .hero-card { padding: 1.8rem 1rem 2rem; }
+      .section-block { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- 主视觉区 信息卡片式 -->
+  <div class="hero-card">
+    <span class="hero-label">资料索引</span>
+    <h1 class="hero-title"><span>1xbet</span> 平台 · 信息整理</h1>
+    <p class="hero-desc">
+      从功能结构、内容覆盖到用户场景，以下卡片汇总了关于 <a href="https://zhcn-cn-1xbet.com" class="link-inline">1xbet</a> 的主要特征与可查阅方向，便于快速建立认知框架。
+    </p>
+    <div class="hero-stats">
+      <span><strong>覆盖领域</strong> 体育 · 电竞 · 娱乐</span>
+      <span><strong>界面语言</strong> 多语种支持</span>
+      <span><strong>访问方式</strong> 网页 / 移动端</span>
+    </div>
+  </div>
+
+  <!-- 用途卡片 grid -->
+  <div class="card-grid">
+    <div class="grid-card">
+      <span class="card-icon">📋</span>
+      <h3>体育赛事追踪</h3>
+      <p>支持联赛、杯赛及即时比分数据，提供赛事详情与统计汇总。可在此基础上进行资料查阅与记录。</p>
+      <span class="card-tag">数据密度</span>
+    </div>
+    <div class="grid-card">
+      <span class="card-icon">🎮</span>
+      <h3>电竞与虚拟项目</h3>
+      <p>涵盖主流电竞项目及模拟赛事，信息分类清晰，便于关注赛程与结果索引。</p>
+      <span class="card-tag">多元场景</span>
+    </div>
+    <div class="grid-card">
+      <span class="card-icon">🧩</span>
+      <h3>娱乐与桌面内容</h3>
+      <p>包含经典棋牌、实时桌游及多种主题游戏，适合休闲场景下的信息浏览。</p>
+      <span class="card-tag">休闲选择</span>
+    </div>
+  </div>
+
+  <!-- 适合人群 + 自然链接段落 -->
+  <div class="section-block">
+    <h2>适合哪些信息需求者</h2>
+    <ul class="compact-list">
+      <li>体育数据分析爱好者</li>
+      <li>多项目娱乐内容浏览者</li>
+      <li>希望快速查阅赛事结果的用户</li>
+      <li>对平台结构做初步调研的人</li>
+    </ul>
+    <p style="margin-top: 0.8rem;">
+      若你想系统查阅 1xbet 的体育项目、电竞模块或界面布局，直接访问 
+      <a href="https://zhcn-cn-1xbet.com" class="link-inline">1xbet</a> 
+      可获取第一手结构信息。注意：本页仅作为资料目录，不提供任何账户注册或财务操作指引。
+    </p>
+  </div>
+
+  <!-- 场景与提示 card 分组 -->
+  <div class="card-grid" style="margin-top: 0.2rem;">
+    <div class="grid-card">
+      <span class="card-icon">🔍</span>
+      <h3>信息检索场景</h3>
+      <p>对某一联赛或电竞项目的赛制、赔率形式做初步归类。<br>利用平台分类筛选功能可缩小范围。</p>
+    </div>
+    <div class="grid-card">
+      <span class="card-icon">🧾</span>
+      <h3>内容索引提示</h3>
+      <p>每个分类下通常包含实时数据与历史统计入口，注意区分「进行中」与「已结束」筛选标签。</p>
+    </div>
+    <div class="grid-card">
+      <span class="card-icon">📌</span>
+      <h3>界面语言偏好</h3>
+      <p>多数页面支持语言切换，可根据习惯调整显示语言。目录结构在不同语言下保持相近。</p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <h3>FAQ 摘要 · 快速参考</h3>
+    <div class="faq-item">
+      <div class="faq-q">平台主要提供哪些内容板块？</div>
+      <div class="faq-a">体育赛事、电竞、虚拟体育、桌面游戏、即时娱乐等，每个板块下具备分类筛选与统计信息。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">是否可以在一个页面查看所有体育项目？</div>
+      <div class="faq-a">首页通常提供导航入口与推荐项目，完整项目列表位于体育或电竞专区。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">资料索引有什么需要注意？</div>
+      <div class="faq-a">以官方页面展示为准，第三方信息整理仅作参考。建议直接通过 <a href="https://zhcn-cn-1xbet.com" class="link-inline">1xbet</a> 了解最新结构。</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    资料整理 · 信息卡片 · 仅用于内容索引 — 不构成任何推荐或引导
+  </div>
+
+</div>
+</body>
+</html>
